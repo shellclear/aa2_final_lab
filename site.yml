@@ -1,16 +1,16 @@
-#- name: Deploy OSP infra
-#  import_playbook: deploy_osp_infra.yml
-
-- name: Deploy Post config OSP instances
-  import_playbook: deploy_post_config_osp_infra.yml
+- name: Deploy OSP infra
+  import_playbook: deploy_osp_infra.yml
 
 - name: Waiting for instances creating
   hosts: localhost
   become: no
   tasks:
     - pause:
-        seconds: 60
-  
+        seconds: 300
+
+- name: Deploy Post config OSP instances
+  import_playbook: deploy_post_config_osp_infra.yml
+
 - name: Deploy Postgres
   import_playbook: deploy_postgres.yml
 

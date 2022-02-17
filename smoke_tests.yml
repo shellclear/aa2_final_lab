@@ -1,4 +1,6 @@
 ---
+- import_playbook: in_memory_inventory.yml
+
 - name: End to end smoke tests
   hosts: app_servers:database_servers
   gather_facts: true
@@ -7,7 +9,6 @@
     - smoketest  
 
   tasks:
-
     - name: Smoketest Postgres database
       postgresql_ping:
         db: flask_db
@@ -25,9 +26,9 @@
   become: false
   gather_facts: false
   tags:
-    - smoketest  
+    - smoketest 
+    
   tasks:
- 
     - name: Check webserver for correct response
       uri:
         url: "http://frontend1/ping"
@@ -36,4 +37,4 @@
       retries: 10
       delay: 1
       register: result
-      delegate_to: control
+      delegate_to: "{{ groups.load_balancers[0] }}"
