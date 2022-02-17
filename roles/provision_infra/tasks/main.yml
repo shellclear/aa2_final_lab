@@ -1,0 +1,12 @@
+---
+- name: Generate HOT template
+  template:
+    src: hot.yml.j2 
+    dest: /tmp/hot.yml 
+
+- name: Create Openstack simple Heat stack
+  command: >- 
+    openstack stack create -vvv
+    -t /tmp/hot.yml
+    -f json base-stack-{{ 99999 | random }}
+    --os-cloud {{ guid }}-project

@@ -1,0 +1,7 @@
+- name: Play to automate process
+  hosts: all
+  become: yes
+
+  tasks:
+    - import_role:
+        name: post_config_osp_infra

@@ -1,0 +1,8 @@
+## Ansible Generated ###
+# TYPE  DATABASE        USER            ADDRESS                 METHOD
+# "local" is for Unix domain socket connections only
+local   all             all                                    ident
+{% for user in postgres_users %}
+host	{{ user.database }}	{{ user.name }}	all	password
+{% endfor %}
+

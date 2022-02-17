@@ -1,0 +1,48 @@
+guid: "{{ lookup('env', 'GUID') }}"
+ssh_public_key_path: "~/.ssh/{{ guid }}key.pub" 
+all_ssh_authorized_keys: "{{ lookup('file', ssh_public_key_path)}}" 
+key_name: "{{ guid }}-keypair" 
+instances: 
+  - name: frontend1
+    image: rhel-8.3 
+    flavor: 
+      osp: GLOBAL-CPU_4_Memory_8192_Disk_30_flavor
+    network: "{{ guid }}-dev-network" 
+    tags: 
+      - key: "AnsibleGroup"
+        value: "load_balancers"
+    security_groups: 
+      - "{{ guid }}-HostSG"
+
+  - name: app1
+    image: rhel-8.3
+    flavor:
+      osp: GLOBAL-CPU_4_Memory_8192_Disk_30_flavor
+    network: "{{ guid }}-dev-network"
+    tags:
+      - key: "AnsibleGroup"
+        value: "app_servers"
+    security_groups:
+      - "{{ guid }}-HostSG"
+
+  - name: app2
+    image: rhel-8.3
+    flavor:
+      osp: GLOBAL-CPU_4_Memory_8192_Disk_30_flavor
+    network: "{{ guid }}-dev-network"
+    tags:
+      - key: "AnsibleGroup"
+        value: "app_servers"
+    security_groups:
+      - "{{ guid }}-HostSG"
+
+  - name: appdb1
+    image: rhel-8.3
+    flavor:
+      osp: GLOBAL-CPU_4_Memory_8192_Disk_30_flavor
+    network: "{{ guid }}-dev-network"
+    tags:
+      - key: "AnsibleGroup"
+        value: "database_servers"
+    security_groups:
+      - "{{ guid }}-HostSG"

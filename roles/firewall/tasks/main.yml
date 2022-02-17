@@ -1,0 +1,23 @@
+- block:
+  - name: Install Firewalld {{ inventory_hostname }}
+    yum:
+      name: firewalld
+      state: latest
+  
+  - name: Start firewalld {{ inventory_hostname }}
+    service:
+      name: firewalld
+      enabled: yes
+      state: started
+  
+  - name: Open ports {{ inventory_hostname }}
+    when: firewall_ports is defined
+    firewalld:
+      port: "{{ __port }}"
+      permanent: yes
+      immediate: yes
+      state: enabled
+    loop: "{{ firewall_ports }}"
+    loop_control:
+      loop_var: __port
+  

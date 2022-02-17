@@ -1,0 +1,15 @@
+- name: Collection instance info
+  os_server_info:
+    cloud: "{{ guid }}-project"
+  register: instances
+
+- name: Build In-Memory inventory
+  add_host:
+    host: "{{ instance.name }}.{{ internal_domain }}"
+    group: "{{ instance.metadata.AnsibleGroup }}"
+    ansible_host: "{{ instance.private_v4 }}"
+    ssh_private_key_file: "{{ home }}/.ssh/{{ guid }}key.pem"
+  when: instance.metadata.AnsibleGroup == "load_balancers" or instance.metadata.AnsibleGroup == "app_servers" or instance.metadata.AnsibleGroup == "database_servers"
+  loop: "{{ instances.openstack_servers }}"
+  loop_control:
+    loop_var: instance

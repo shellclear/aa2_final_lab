@@ -1,0 +1,36 @@
+## Ansible Generated ###
+#jinja2: lstrip_blocks: "True"
+---
+heat_template_version: 2018-03-02
+description: Top level HOT for creating instances. 
+
+resources:
+{% for instance in instances %}
+  ########### {{ instance.name }} ###########
+  server_{{ instance.name }}:
+    type: OS::Nova::Server
+    properties:
+      name: {{ instance.name }}
+      flavor: {{ instance.flavor.osp }}
+      key_name: {{ guid }}-keypair
+      config_drive: True
+      block_device_mapping_v2:
+        - image: {{ instance.image }}
+          delete_on_termination: true
+          volume_size: 50
+          boot_index: 0
+      user_data_format: RAW
+      user_data: |
+        #cloud-config
+        ssh_authorized_keys: {{ all_ssh_authorized_keys | to_json }}
+      networks:
+        - network: {{ instance.network }}
+      metadata:
+      {% for tag in instance.tags %}
+        '{{ tag.key }}': {{ tag.value | to_json }}
+      {% endfor %}
+      security_groups:
+      {% for security_group in instance.security_groups %}
+        - {{ security_group }}
+      {% endfor %}
+{% endfor %}
