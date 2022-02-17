@@ -1,7 +1,7 @@
-# guid: "{{ lookup('env', 'GUID') }}"
-# ssh_public_key_path: "./ssh/{{ guid }}key.pub" 
-# all_ssh_authorized_keys: "{{ lookup('file', ssh_public_key_path)}}" 
-# key_name: "{{ guid }}-keypair" 
+guid: "{{ lookup('env', 'GUID') }}"
+ssh_public_key_path: "./ssh/{{ guid }}key.pub" 
+all_ssh_authorized_keys: "{{ lookup('file', ssh_public_key_path)}}" 
+key_name: "{{ guid }}-keypair" 
 instances: 
   - name: frontend1
     image: rhel-8.3 
