@@ -2,8 +2,7 @@
 - name: List OSP instances
   hosts: localhost
   become: no
-  vars:
-    GUID: b562
+
   tasks:
     - name: List servers
-      command: openstack server list --os-cloud=${GUID}-project
+      command: openstack server list --os-cloud=b562-project
