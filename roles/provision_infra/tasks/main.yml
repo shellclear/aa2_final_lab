@@ -5,8 +5,18 @@
     dest: /tmp/hot.yml 
 
 - name: Create Openstack simple Heat stack
-  command: >- 
-    openstack stack create -vvv
-    -t /tmp/hot.yml
-    -f json base-stack-{{ 99999 | random }}
-    --os-cloud {{ guid }}-project
+  openstack.cloud.stack:
+    name: base-stack-{{ 99999 | random }}
+    state: present
+    template: /tmp/hot.yml
+  register: stack_create
+
+- debug:
+    msg: "{{ stack_create }}"
+
+# - name: Create Openstack simple Heat stack
+#   command: >- 
+#     openstack stack create -vvv
+#     -t /tmp/hot.yml
+#     -f json base-stack-{{ 99999 | random }}
+#     --os-cloud {{ guid }}-project
