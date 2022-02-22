@@ -13,10 +13,3 @@
 
 - debug:
     msg: "{{ stack_create }}"
-
-# - name: Create Openstack simple Heat stack
-#   command: >- 
-#     openstack stack create -vvv
-#     -t /tmp/hot.yml
-#     -f json base-stack-{{ 99999 | random }}
-#     --os-cloud {{ guid }}-project
