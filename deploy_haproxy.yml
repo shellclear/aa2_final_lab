@@ -8,5 +8,3 @@
   tasks:
     - import_role:
         name: haproxy
-
-

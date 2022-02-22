@@ -10,6 +10,3 @@
     state: present
     template: /tmp/hot.yml
   register: stack_create
-
-- debug:
-    msg: "{{ stack_create }}"
