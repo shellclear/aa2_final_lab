@@ -1,0 +1,2 @@
+firewall_ports:
+  - "{{ postgres_port }}/tcp"

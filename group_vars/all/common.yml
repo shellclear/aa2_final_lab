@@ -1,0 +1,5 @@
+guid: b562
+dns: "192.168.50.115"
+satellite_activationkey: gpte-labs-rhel8
+satellite_org: prod
+internal_domain: "example.com"
