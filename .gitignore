@@ -3,4 +3,6 @@ venv
 .DS_Store
 .vagrant
 archive
-ssh/b562key.pem
+ssh/*.pem
+ssh/*rsa
+ssh/*.cfg

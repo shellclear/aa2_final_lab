@@ -6,7 +6,7 @@
   become: no
   tasks:
     - pause:
-        seconds: 300
+        seconds: 120
 
 - name: Deploy Post config OSP instances
   import_playbook: deploy_post_config_osp_infra.yml
