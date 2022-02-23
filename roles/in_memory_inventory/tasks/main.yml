@@ -3,7 +3,7 @@
     # cloud: "{{ guid }}-project"
   register: instances
 
-- name: DEBUG: Build In-Memory inventory
+- name: "DEBUG: Build In-Memory inventory"
   debug:
     msg:
     - "host: {{ instance.name }}.{{ internal_domain }}"
