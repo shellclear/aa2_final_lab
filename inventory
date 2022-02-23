@@ -1,6 +1,7 @@
 load_balancers:
   hosts:
     frontend1.example.com:
+      ansible_host: hostvars[host]['ansible_host']
 
 app_servers:
   hosts:
