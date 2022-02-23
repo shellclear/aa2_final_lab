@@ -7,11 +7,3 @@
   tasks:
     - import_role:
         name: in_memory_inventory
-
-# - name: Print current hosts
-#   hosts: localhost
-#   connection: local
-#   gather_facts: no
-
-#   tasks:
-#     - debug: var=hostvars

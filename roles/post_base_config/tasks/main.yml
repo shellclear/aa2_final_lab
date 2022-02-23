@@ -15,16 +15,6 @@
       state: restarted
     when: network_update.changed | bool
 
-  - name: DEBUG VARS
-    debug:
-      msg: #"{{ groups['all'] }}"
-        - "HOSTVARS: {{ hostvars[item]['ansible_host'] }}"
-    loop: "{{ groups['all'] }}"
-    run_once: true
-
-  # - pause:
-  #     seconds: 600
-
   - name: Populate /etc/hosts file
     template:
       src: hosts.j2
