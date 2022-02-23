@@ -6,5 +6,7 @@
   become: yes
 
   tasks:
-    - import_role:
+    - include_role:
+        name: in_memory_inventory
+    - include_role:
         name: post_base_config
