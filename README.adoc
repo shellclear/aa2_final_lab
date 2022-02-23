@@ -14,3 +14,23 @@ image::.images/ntier-app-topology.png[role="thumb center" width=80%]
 - Configure repositories
 - Register hosts at satellite
 - Install webapp
+
+
+NOTE: Requirements to run the playbooks on Ansible Tower
+
+- Create a git project https://github.com/shellclear/aa2_final_lab.git and 
+  branch wip/final-lab
+- SSH private key for cloud-user
+- OSP credentials
+- Create inventory to use tower as controlnode and set contro_nodes group 
+  and set the group vars {{'ansible_connection': 'local', 'ansible_host':
+  '127.0.0.1'}}
+- Create templates : deploy_osp_infra, ping_instances, deploy_base_config,
+  deploy_postgres, deploy_haproxy, deploy_webapp, smoke_tests  using the 
+  project: aa2_final_lab , inventory: tower, credentials: openstack,ssh, 
+  job type: Run and select for each template a playbook matching 
+  template name
+- Create workflows: Webapp_flow: start -> deploy_base_config -> 
+  deploy_postgres|deploy_webapp|deploy_haproxy -> smoke_tests and oneclick
+  _webapp: start -> deploy_osp_infra -> ping_instances -> Webapp_flow
+  
