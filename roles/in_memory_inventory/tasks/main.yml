@@ -23,7 +23,7 @@
   add_host:
     host: "{{ instance.name }}.{{ internal_domain }}"
     groups: "{{ instance.metadata.AnsibleGroup }}"
-    ansible_host: "{{ instance.private_v4 }}"
+    test: "{{ instance.private_v4 }}"
     ssh_private_key_file: ".ssh/{{ guid }}key.pem"
   when: instance.metadata.AnsibleGroup == "load_balancers" or instance.metadata.AnsibleGroup == "app_servers" or instance.metadata.AnsibleGroup == "database_servers"
   loop: "{{ instances.openstack_servers }}"
