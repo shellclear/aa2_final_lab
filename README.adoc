@@ -16,7 +16,9 @@ image::.images/ntier-app-topology.png[role="thumb center" width=80%]
 - Install webapp
 
 
-NOTE: Requirements to run the playbooks on Ansible Tower
+NOTE:
+
+Requirements to run the playbooks on Ansible Tower
 
 - Create a git project https://github.com/shellclear/aa2_final_lab.git and 
   branch wip/final-lab
