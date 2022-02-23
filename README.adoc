@@ -34,3 +34,6 @@ NOTE: Requirements to run the playbooks on Ansible Tower
   deploy_postgres|deploy_webapp|deploy_haproxy -> smoke_tests and oneclick
   _webapp: start -> deploy_osp_infra -> ping_instances -> Webapp_flow
   
+image::.images/flow1.png[role="thumb center" width=80%]
+
+image::.images/flow2.png[role="thumb center" width=80%]
