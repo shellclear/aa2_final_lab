@@ -5,7 +5,7 @@
   import_playbook: ping_instances.yml
 
 - name: Deploy Post config OSP instances
-  import_playbook: depoly_post_config.yml
+  import_playbook: deploy_post_config.yml
 
 - name: Deploy Postgres
   import_playbook: deploy_postgres.yml
