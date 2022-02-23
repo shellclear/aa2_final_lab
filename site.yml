@@ -22,3 +22,4 @@
 
 - name: Smoke tests
   import_playbook: smoke_tests.yml
+  

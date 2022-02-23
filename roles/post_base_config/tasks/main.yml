@@ -15,9 +15,9 @@
       state: restarted
     when: network_update.changed | bool
 
-  - name: DEBUG VARS
-    debug:
-      msg: "{{ hostvars[inventory_hostname]['ansible_host'] }}"
+  # - name: DEBUG VARS
+  #   debug:
+  #     msg: "{{ hostvars[inventory_hostname]['ansible_host'] }}"
 
   - name: Populate /etc/hosts file
     template:
