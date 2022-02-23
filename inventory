@@ -1,18 +1,15 @@
 load_balancers:
   hosts:
     frontend1.example.com:
-      ansible_host: hostvars[host]['ansible_host']
 
 app_servers:
   hosts:
     app1.example.com:
-      ansible_host: hostvars[host]['ansible_host']
     app2.example.com:
-      ansible_host: hostvars[host]['ansible_host']
+
 database_servers:
   hosts:
     appdb1.example.com:
-      ansible_host: hostvars[host]['ansible_host']
 
 all:
   children:
