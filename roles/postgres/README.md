@@ -1,7 +1,7 @@
 Postgres
 =========
 
-Deploy and configure Postgres
+Deploy and configure Postgres12
 
 Requirements
 ------------

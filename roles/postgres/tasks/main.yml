@@ -8,7 +8,7 @@
   - name: Disable the built-in PostgreSQL module
     command: dnf -qy module disable postgresql
 
-  - name: Install Postgres packages
+  - name: Install Postgres 12 packages
     package:
       name: "{{ __package }}"
       state: present
@@ -19,7 +19,7 @@
     loop_control:
       loop_var: __package
   
-  - name: Check if Postgres initialized
+  - name: Check if Postgres is initialized
     stat:
       path: "{{ postgres_12_data_dir }}/PG_VERSION"
     register: r_postgres_init_dir_state
@@ -63,10 +63,9 @@
         postgresql_user:
           name: "{{ __user.name }}"
           password: "{{ __user.password | default(omit) }}"
-          encrypted: true # "{{ __user.encrypted | default(omit) }}"
+          encrypted: true 
           priv: "{{ __user.priv | default(omit) }}"
           db: "{{ __user.database | default(omit) }}"
-          # role_attr_flags: "{{ __user.role_attr_flags | default(omit) }}"
           state: "{{ __user.state | default('present') }}"
         loop: "{{ postgres_users }}"
         loop_control:
