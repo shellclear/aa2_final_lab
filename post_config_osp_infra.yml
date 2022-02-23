@@ -7,4 +7,4 @@
 
   tasks:
     - import_role:
-        name: post_config_osp_infra
+        name: post_base_config
