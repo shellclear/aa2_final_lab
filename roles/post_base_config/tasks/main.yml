@@ -18,7 +18,7 @@
   - name: DEBUG VARS
     debug:
       msg: 
-        - "HOSTVARS: {{ hostvars[item]['ansible_host'] }}"
+        - "HOSTVARS: {{ hostvars[item] }}"
     loop: "{{ groups['all'] }}"
     run_once: true
     when: instance.metadata.AnsibleGroup == "load_balancers"
