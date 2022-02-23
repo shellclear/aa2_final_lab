@@ -41,7 +41,8 @@ Requirements to run the playbooks on Ansible Tower
     oneclick_webapp:
       start -> deploy_osp_infra -> ping_instances -> Webapp_flow
   
-Images:
+=== Workflows
+
 image::.images/flow2.png[role="thumb center" width=80%]
 webapp_flow
 
