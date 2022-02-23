@@ -21,7 +21,6 @@
         - "HOSTVARS: {{ hostvars[item] }}"
     loop: "{{ groups['all'] }}"
     run_once: true
-    when: instance.metadata.AnsibleGroup == "load_balancers"
 
   - name: Populate /etc/hosts file
     template:
