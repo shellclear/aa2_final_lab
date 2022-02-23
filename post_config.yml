@@ -1,4 +1,12 @@
 - name: Play to automate process
+  hosts: localhost 
+  become: yes
+
+  tasks:
+    - include_role:
+        name: in_memory_inventory
+
+- name: Play to automate process
   hosts: 
     - load_balancers
     - app_servers
@@ -6,7 +14,5 @@
   become: yes
 
   tasks:
-    - include_role:
-        name: in_memory_inventory
     - include_role:
         name: post_base_config
