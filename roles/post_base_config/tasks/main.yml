@@ -19,7 +19,7 @@
     debug:
       msg: 
         - "HOSTVARS: {{ hostvars[item]['ansible_host'] }}"
-    loop: "{{ hostvars['all'] }}"
+    loop: "{{ groups['all'] }}"
 
   - name: Populate /etc/hosts file
     template:
