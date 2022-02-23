@@ -1,6 +1,5 @@
 ---
-# Uncomment to run locally
-# - import_playbook: in_memory_inventory.yml
+- import_playbook: in_memory_inventory.yml
 
 - name: End to end smoke tests
   hosts: app_servers:database_servers
