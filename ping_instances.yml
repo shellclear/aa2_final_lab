@@ -1,0 +1,23 @@
+---
+- import_playbook: in_memory_inventory.yml
+
+- name: Check If OSP instances are running
+  hosts:
+    - load_balancers
+    - app_servers
+    - database_servers
+  gather_facts: no
+  become: no
+  tags:
+    - ping_instances
+
+  tasks:
+    - name: Ping instances
+      ansible.builtin.ping:
+      register: pong
+
+    - name: DEBUG Ping instances
+      debug:
+        msg: "{{ pong }}"
+        
+        
