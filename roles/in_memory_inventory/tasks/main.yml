@@ -13,4 +13,8 @@
   loop: "{{ instances.openstack_servers }}"
   loop_control:
     loop_var: instance
+
+- name: DEBUG 
+  debug:
+    msg: var=hostvars
    
