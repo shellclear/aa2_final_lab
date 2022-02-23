@@ -1,5 +1,5 @@
 ---
-- name: Deploy infra for webapp application
+- name: Deploy OSP infra for webapp application
   hosts: localhost
   become: no
   gather_facts: false
