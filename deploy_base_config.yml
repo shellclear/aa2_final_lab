@@ -1,3 +1,0 @@
----
-- import_playbook: in_memory_inventory.yml
-- import_playbook: post_config.yml
