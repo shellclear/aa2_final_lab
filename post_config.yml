@@ -1,12 +1,4 @@
 - name: Play to automate process
-  hosts: localhost 
-  become: no
-
-  tasks:
-    - include_role:
-        name: in_memory_inventory
-
-- name: Play to automate process
   hosts: 
     - load_balancers
     - app_servers
