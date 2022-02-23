@@ -19,7 +19,7 @@
     debug:
       msg: 
         - "HOSTVARS: {{ hostvars[item] }}"
-    loop: "{{ groups['all'] }}"
+    loop: "{{ groups['load_balancers'] }}"
     run_once: true
 
   - pause:

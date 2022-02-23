@@ -1,7 +1,6 @@
 - name: Play to automate process
   hosts: 
     - load_balancers
-    - !localhost
     # - app_servers
     # - database_servers
   become: yes
