@@ -15,7 +15,7 @@
     - name: Ping instances
       ansible.builtin.ping:
       register: pong
-      retries: 10
+      retries: 20
 
     - name: DEBUG Ping instances
       debug:
