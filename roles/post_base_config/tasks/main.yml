@@ -18,8 +18,8 @@
   - name: DEBUG VARS
     debug:
       msg: 
-        - "HOSTVARS: {{ hostvars[item]['ansible'] }}"
-    loop: "{{ groups['load_balancers'] }}"
+        - "HOSTVARS: {{ hostvars['load_balancers']['ansible'] }}"
+    # loop: "{{ groups['load_balancers'] }}"
     run_once: true
 
   # - pause:
