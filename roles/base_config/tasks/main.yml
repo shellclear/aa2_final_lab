@@ -9,7 +9,7 @@
       - DNS1={{ dns }}
     register: network_update
   
-  - name: restart network manager
+  - name: Restart network manager
     service:
       name: NetworkManager
       state: restarted
@@ -20,13 +20,13 @@
       src: hosts.j2
       dest: /etc/hosts
 
-  - name: install katello-ca-consumer package
+  - name: Install katello-ca-consumer package
     yum:
       name: http://satellite.example.com/pub/katello-ca-consumer-latest.noarch.rpm
       state: present
       disable_gpg_check: true
   
-  - name: register system and attach subs
+  - name: Register system and attach subs
     redhat_subscription:
       state: present
       activationkey: "{{ satellite_activationkey }}"

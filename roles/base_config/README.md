@@ -1,7 +1,7 @@
 Role Name
 =========
 
-Post Provision osp config
+Basic instances configuration
 
 Requirements
 ------------

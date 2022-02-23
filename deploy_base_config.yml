@@ -1,0 +1,12 @@
+- import_playbook: in_memory_inventory.yml
+
+- name: Ensure basic configuration
+  hosts: 
+    - load_balancers
+    - app_servers
+    - database_servers
+  become: yes
+
+  tasks:
+    - include_role:
+        name: base_config
