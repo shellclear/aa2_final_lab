@@ -1,6 +1,6 @@
 - name: Play to automate process
   hosts: localhost 
-  become: yes
+  become: no
 
   tasks:
     - include_role:
