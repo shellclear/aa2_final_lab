@@ -1,13 +1,9 @@
 - name: Deploy OSP Instances
   import_playbook: deploy_osp_infra.yml
 
-- name: Waiting for instances creating
-  hosts: localhost
-  become: no
-  tasks:
-    - pause:
-        seconds: 60
-
+- name: Ensure instances are alive
+  import_playbook: ping_instances.yml
+  
 - name: Deploy Post config OSP instances
   import_playbook: deploy_base_config.yml
 
