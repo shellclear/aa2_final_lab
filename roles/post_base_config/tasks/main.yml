@@ -18,11 +18,8 @@
   - name: DEBUG VARS
     debug:
       msg: 
-        - "{{ hostvars[host]['ansible_host'] }}"
-        - "HOSTVARS: {{ hostvars[host] }}"
-
-  # - pause:
-  #     seconds: 300
+        - "HOSTVARS: {{ hostvars[item]['ansible_host'] }}"
+    loop: "{{ hostvars['all'] }}"
 
   - name: Populate /etc/hosts file
     template:
