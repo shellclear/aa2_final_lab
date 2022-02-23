@@ -16,6 +16,3 @@
   tasks:
     - debug: var=hostvars
 
-- name: PAUSE
-  pause:
-    seconds: 300
