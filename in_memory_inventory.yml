@@ -15,4 +15,3 @@
 
 #   tasks:
 #     - debug: var=hostvars
-
