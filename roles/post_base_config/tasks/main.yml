@@ -17,13 +17,13 @@
 
   - name: DEBUG VARS
     debug:
-      msg: 
-        - "HOSTVARS: {{ hostvars['app1.example.com']['ansible'] }}"
+      msg: var=groups['all']
+        # - "HOSTVARS: {{ hostvars['app1.example.com']['ansible'] }}"
     # loop: "{{ groups['load_balancers'] }}"
     run_once: true
 
-  # - pause:
-  #     seconds: 600
+  - pause:
+      seconds: 600
 
   - name: Populate /etc/hosts file
     template:
