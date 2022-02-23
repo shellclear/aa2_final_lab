@@ -4,7 +4,7 @@
     src: hot.yml.j2 
     dest: /tmp/hot.yml 
 
-- name: Create Openstack simple Heat stack
+- name: Create Openstack Heat stack
   openstack.cloud.stack:
     name: base-stack-{{ 99999 | random }}
     state: present

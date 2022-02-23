@@ -1,4 +1,4 @@
-- name: Deploy OSP infra
+- name: Deploy OSP Instances
   import_playbook: deploy_osp_infra.yml
 
 - name: Waiting for instances creating

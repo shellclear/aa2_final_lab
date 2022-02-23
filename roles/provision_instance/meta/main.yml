@@ -1,6 +1,6 @@
 galaxy_info:
   author: paulo@redhat.com
-  description: Provision OSP Infra
+  description: Provision OSP instances
   company: Red Hat
   license: license (GPL-2.0-or-later, MIT, etc)
   min_ansible_version: 2.9
