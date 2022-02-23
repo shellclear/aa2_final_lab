@@ -9,7 +9,7 @@
         seconds: 60
 
 - name: Deploy Post config OSP instances
-  import_playbook: deploy_post_config_osp_infra.yml
+  import_playbook: deploy_base_config.yml
 
 - name: Deploy Postgres
   import_playbook: deploy_postgres.yml
