@@ -1,4 +1,6 @@
 ---
+- import_playbook: in_memory_inventory.yml
+
 - name: Deploy, configure, and populate flask repo and virtualenv
   hosts: app_servers
   become: true
