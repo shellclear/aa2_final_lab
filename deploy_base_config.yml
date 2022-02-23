@@ -1,3 +1,4 @@
 ---
-- import_playbook: in_memory_inventory.yml
+# Uncomment to run locally
+# - import_playbook: in_memory_inventory.yml
 - import_playbook: post_config.yml
