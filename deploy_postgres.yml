@@ -1,5 +1,7 @@
 ---
-- name: Deploy, configure, and populate Postgres 10
+- import_playbook: in_memory_inventory.yml
+
+- name: Deploy, configure, and populate Postgres 12
   hosts: database_servers
   become: true
   gather_facts: false
