@@ -1,3 +1,6 @@
+# Uncomment to run using tower
+- import_playbook: in_memory_inventory.yml
+
 - name: Play to automate process
   hosts: 
     - load_balancers
